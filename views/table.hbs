@@ -1,0 +1,65 @@
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/htmx.org@1.9.3"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-size: 18px; } 
+      .container { margin: 1rem auto; max-width: 36rem; }
+      .warning {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>HTMX enhanced table example</h1>
+      <table class="pure-table pure-table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Atomic Mass</th>
+            <th>Density</th>
+        </tr>
+    </thead>
+    <tbody id="table_body">
+      {{#each elements as |element|}}
+        <tr class="">
+            <td>{{element.name}}</td>
+            <td>{{element.number}}</td>
+            <td>{{element.atomic_mass}}</td>
+            <td>{{element.density}}</td>
+        </tr>
+        {{/each}}
+    <tr id="replaceMe">
+      <td colspan="4">
+        <div class="htmx-indicator">Loading..</div>
+        <button  
+        hx-get="?offset=5&limit=5&partial=true"
+        hx-target="#replaceMe"
+        hx-swap="outerHTML" 
+        class="pure-button">Load More</button>
+
+      </td>
+    </tr>
+    </tbody>
+</table>
+  <button  
+    hx-get="?offset=5&limit=5&partial=true"
+    hx-target="#table_body"
+    hx-swap="beforeend" 
+    class="pure-button">Load More</button>
+
+    <a hx-boost="true"
+      href="?limit=5&partial=true"
+    
+    class="pure-button">Load Via Boost</a>
+    </main>
+  </body>
+</html>

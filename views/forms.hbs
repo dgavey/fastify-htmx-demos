@@ -1,0 +1,42 @@
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/htmx.org@1.9.3"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-size: 18px; } 
+      .container { margin: 1rem auto; max-width: 36rem; }
+      .warning {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <form
+        hx-boost="true"
+        action="/forms"
+        method="POST"
+        class="pure-form pure-form-stacked"
+      >
+        <fieldset>
+          <legend>HTMX boosted form</legend>
+          <label for="email">Email</label>
+          <input name="email" type="email" id="email" value="{{form.email}}" placeholder="Email" />
+          <span class="pure-form-message">This is a required field.</span>
+          <label for="password">Password</label>
+          <input name="password" type="password" id="password" placeholder="Password" />
+          {{#if errors.password}}
+            <div class="warning">{{errors.password}}</div>
+          {{/if}}
+          <button type="submit" class="pure-button pure-button-primary">Sign Up</button>
+        </fieldset>
+      </form>
+    </main>
+  </body>
+</html>
