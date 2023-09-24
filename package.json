@@ -29,9 +29,10 @@
   "devDependencies": {
     "tap": "^16.1.0"
   },
-  
+
   "engines": {
-    "node": ">=18"
+    "node": ">=18",
+    "npm": ">=9.8"
   }
   
 }
