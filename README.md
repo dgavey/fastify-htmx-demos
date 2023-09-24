@@ -1,26 +1,10 @@
-# Getting Started with [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
-This project was bootstrapped with Fastify-CLI.
+# HTMX, Fastify and Handlebars demos
 
-## Available Scripts
+These demos are intended to help understand the concepts of HTMX.  They touch on some core hx tags and how they can be used in relatively real world scenarios.
+You can find live demos of them at [htmx.gavey.ca](https://htmx.gavey.ca)
 
-In the project directory, you can run:
+# Project References
+- [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
+- [HTMX](https://htmx.org/)
+- [HandlebarsJS](https://handlebarsjs.com/)
 
-### `npm run dev`
-
-To start the app in dev mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### `npm start`
-
-For production mode
-
-### `npm run test`
-
-Run the test cases.
-
-## Learn More
-
-To learn Fastify, check out the [Fastify documentation](https://www.fastify.io/docs/latest/).
-
-
-Add readme here
