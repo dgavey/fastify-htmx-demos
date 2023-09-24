@@ -13,6 +13,7 @@ module.exports = async function (fastify, opts) {
     }
     if (errors.password === null) {
       // If no errors redirect
+     
       return reply.redirect('/signed-up')
     }
     return reply.view("forms.hbs", { form: request.body, errors: errors });

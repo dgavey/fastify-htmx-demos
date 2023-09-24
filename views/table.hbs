@@ -8,6 +8,7 @@
       crossorigin="anonymous"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="htmx-config" content='{"useTemplateFragments":true}'>
     <style>
       body { font-size: 18px; } 
       .container { margin: 1rem auto; max-width: 36rem; }
@@ -15,6 +16,7 @@
         color: red;
       }
     </style>
+
   </head>
   <body>
     <main class="container">
@@ -37,29 +39,17 @@
             <td>{{element.density}}</td>
         </tr>
         {{/each}}
-    <tr id="replaceMe">
-      <td colspan="4">
-        <div class="htmx-indicator">Loading..</div>
-        <button  
-        hx-get="?offset=5&limit=5&partial=true"
-        hx-target="#replaceMe"
-        hx-swap="outerHTML" 
-        class="pure-button">Load More</button>
-
-      </td>
-    </tr>
+   
     </tbody>
 </table>
+ 
+  <div class="htmx-indicator">Loading..</div> 
   <button  
-    hx-get="?offset=5&limit=5&partial=true"
-    hx-target="#table_body"
-    hx-swap="beforeend" 
-    class="pure-button">Load More</button>
+      hx-get="?offset={{offset}}&limit=25&limit={{limit}}&partial=true"
+      hx-swap="outerHTML" 
+      class="pure-button">Load More</button>
 
-    <a hx-boost="true"
-      href="?limit=5&partial=true"
-    
-    class="pure-button">Load Via Boost</a>
-    </main>
+
+
   </body>
 </html>

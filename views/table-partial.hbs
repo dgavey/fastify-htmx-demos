@@ -1,21 +1,17 @@
-{{#each elements as |element|}}
-  <tr class="">
-      <td>{{element.name}}</td>
-      <td>{{element.number}}</td>
-      <td>{{element.atomic_mass}}</td>
-      <td>{{element.density}}</td>
-  </tr>
-  
-{{/each}}
-
- <tr id="replaceMe">
-      <td colspan="4">
-        <div class="htmx-indicator">Loading..</div>
-        <button  
-        hx-get="?offset={{offset}}&limit=5&partial=true"
-        hx-target="#replaceMe"
-        hx-swap="outerHTML" 
-        class="pure-button">Load More</button>
-
-      </td>
+<tbody hx-swap-oob="beforeend:#table_body">
+  {{#each elements as |element|}}
+    <tr class="" >
+        <td>{{element.name}}</td>
+        <td>{{element.number}}</td>
+        <td>{{element.atomic_mass}}</td>
+        <td>{{element.density}}</td>
     </tr>
+  {{/each}}
+</tbody>
+
+<button  
+      hx-get="?offset={{offset}}&limit={{limit}}&partial=true"
+      hx-swap="outerHTML" 
+      class="pure-button">
+      Load More
+</button>
