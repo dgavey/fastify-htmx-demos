@@ -1,6 +1,6 @@
 <html lang="en">
   <head>
-    <script src="https://unpkg.com/htmx.org@1.9.3"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
@@ -16,10 +16,9 @@
       }
     </style>
   </head>
-  <body>
+  <body hx-boost="true">
     <main class="container" >
       <form
-        hx-boost="true"
         action="/forms"
         method="POST"
         class="pure-form pure-form-stacked"
@@ -37,6 +36,8 @@
           <button type="submit" class="pure-button pure-button-primary">Sign Up</button>
         </fieldset>
       </form>
+
+      <a href="/support">Need Help?</a>
     </main>
   </body>
 </html>

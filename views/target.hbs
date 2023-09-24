@@ -1,6 +1,6 @@
 <html lang="en">
   <head>
-    <script src="https://unpkg.com/htmx.org@1.9.3"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
@@ -24,7 +24,7 @@
       <div id="response-div">
         <h1>Server status unknown</h1>
       </div>
-      <button hx-post="/target" hx-target="#response-div" hx-swap="innerHTML">
+      <button class="pure-button pure-button-primary" hx-post="/target" hx-target="#response-div" hx-swap="innerHTML">
           Check Server Status
       </button>
     </main>
