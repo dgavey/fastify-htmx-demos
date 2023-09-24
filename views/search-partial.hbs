@@ -1,0 +1,27 @@
+{{#if results.length}}
+  <table class="pure-table">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>City</th>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {{#each results as |result|}}
+        <tr>
+          <td>{{result.key}}</td>
+          <td>{{result.city}}</td>
+          <td>{{result.name}}</td>
+          <td>{{result.country}}</td>
+        </tr>
+
+      {{/each}}
+
+    </tbody>
+  </table>
+{{else}}
+  No Results Found
+{{/if}}

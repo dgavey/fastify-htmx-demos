@@ -1,0 +1,42 @@
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="htmx-config" content='{"useTemplateFragments":true}'>
+    <style>
+      body { font-size: 18px; } 
+      .container { margin: 1rem auto; max-width: 36rem; }
+      .warning {
+        color: red;
+      }
+    </style>
+
+  </head>
+  <body>
+    <main class="container">
+      <h1>Search for an airport</h1>
+       <form
+        class="pure-form pure-form-stacked"
+      >
+        <fieldset>
+        <input name="query"
+          hx-post="/search" hx-trigger="keyup changed delay:1s"
+          hx-target="#search-results"
+          hx-indicator="#loading-state"
+          placeholder="Enter a city name"
+          />
+       </fieldset>
+         
+       </form>
+ 
+      <div id="loading-state" class="htmx-indicator">Loading..</div> 
+      <div id="search-results">
+       
+      </div>
+</html>
