@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/head-support.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="htmx-config" content='{"useTemplateFragments":true}'>
+    <style>
+      body { font-size: 18px; } 
+      .container { margin: 1rem auto; max-width: 36rem; }
+      .warning {
+        color: red;
+      }
+      .pure-menu-item {
+        height: auto;
+      
+      }
+
+    
+    </style>
+
+  </head>
+  <body hx-boost="true" hx-ext="head-support">
+    <main class="container">
+      <h1>HTMX, Fastify and Handlebars Examples</h1>
+      <p>Below are a number of examples for Fastify and HTMX.  <br>You can find a public repo of the code here -> <a target="_blank" href="https://github.com/dgavey/fastify-htmx-demos">https://github.com/dgavey/fastify-htmx-demos</a> </p>
+      
+     
+      <div class="pure-menu custom-restricted-width">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/forms">Signup Form</a>
+        </li>
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/search">Typeahead search</a>
+        </li>
+        <li class="pure-menu-item">
+          <a class="pure-menu-link"href="/table">Table Pagination</a>
+        </li>
+         <li class="pure-menu-item">
+          <a class="pure-menu-link"href="/target">HX-target example</a>
+        </li>
+      </ul>
+      </div>
+
+  </body>
+</html>
