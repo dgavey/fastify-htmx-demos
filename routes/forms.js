@@ -1,11 +1,11 @@
 'use strict'
 
 module.exports = async function (fastify, opts) {
-  fastify.get('/', async function (request, reply) {
+  fastify.get('/forms', async function (request, reply) {
     return reply.view("forms.hbs", { });
   })
 
-  fastify.post('/', async function (request, reply) {
+  fastify.post('/forms', async function (request, reply) {
     // Check form, throw errors, redirect on positive signup
     const errors = {password: null};
     if ( request.body.password.length < 5) {

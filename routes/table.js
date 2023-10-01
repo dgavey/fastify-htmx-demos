@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = async function (fastify, opts) {
-  fastify.get('/', async function (request, reply) {
+  fastify.get('/table', async function (request, reply) {
     const limit = request.query?.limit ? parseInt(request.query?.limit) : 25;
     const offset = request.query?.offset ?  parseInt(request.query?.offset) : 0;
     const response = await fetch(`https://api.dedolist.com/api/v1/science/periodic-table-summary/?limit=${limit}&offset=${offset}&sort=number`)
