@@ -1,0 +1,35 @@
+<simple-component name="Darlin'"></simple-component>
+<simple-component name="to you too'"></simple-component>
+
+<script type="module">
+import {html, css, LitElement} from 'https://cdn.jsdelivr.net/gh/lit/dist@2.4.0/core/lit-core.min.js';
+
+export class SimpleComponent extends LitElement {
+  static get styles() {
+    return css`p { color: blue }`;
+  }
+
+  static get properties() {
+    return {
+      name: {type: String},
+      _counter: {state: true}
+    }
+  }
+
+  constructor() {
+    super();
+    this.name = 'Somebody';
+    this._counter = 0;
+  }
+
+  _increment(e) {
+    this._counter++;
+  }
+
+  render() {
+    return html`<p>Hello, ${this.name}!</p><p>Count is ${this._counter}</p><button @click="${this._increment}">Click Me!</button>`;
+  }
+}
+
+customElements.define('simple-component', SimpleComponent);
+</script>

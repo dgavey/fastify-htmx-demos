@@ -1,0 +1,35 @@
+<html lang="en">
+
+<head>
+  <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-size: 18px;
+    }
+
+    .container {
+      margin: 1rem auto;
+      max-width:
+        36rem;
+    }
+
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <h1>Load Web Component Example</h1>
+    <div id="response-div">
+      Lit Web Components will load here…
+    </div>
+    <button class="pure-button pure-button-primary" hx-post="/lit" hx-target="#response-div" hx-swap="innerHTML">
+      Load Components
+    </button>
+    
+  </main>
+</body>
+
+</html>
