@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-size: 18px; } 
+      .container { margin: 1rem auto; max-width: 36rem; }
+      .warning {
+        color: red;
+      }
+      .greenText {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container" >
+      <div id="response-div">
+        <h1>Current Server Time</h1>
+      </div>
+      <div hx-post="/poller" hx-swap="innerHTML" hx-trigger="every 1s" _="on load wait 60s then remove me">
+
+      </div>
+      <article>
+       <p>This example uses an `hx-trigger="every 1s` in order to pull data from the servers partial every 1 second. It uses Hyperscript to remove the polling element after 60 seconds.</p>
+       <p><a href="https://htmx.org/attributes/hx-trigger/">HTMX Documentation</a></p>
+        <p><a href="https://github.com/dgavey/fastify-htmx-demos/">Github code</a></p>
+      </article>
+    </main>
+  </body>
+</html>
+
