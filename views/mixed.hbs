@@ -1,0 +1,83 @@
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-size: 18px; } 
+      .container { margin: 1rem auto; max-width: 36rem; }
+      .warning {
+        color: red;
+      }
+      .hidden {
+        visibility: hidden;
+      }
+      .padding {
+        padding: 1rem;
+      }
+      .margin {
+        margin: 1rem;
+      }
+      .no-opacity {
+        opacity: 0
+      }
+      .animate {
+         opacity: 1;
+         transition: opacity 1s ease-out;
+      }
+    </style>
+    <script>
+      const removeHidden = function() {
+        document.querySelector("#hiddenContent").classList.remove("hidden");
+      }
+    </script>
+  </head>
+  <body>
+    <main class="container" >
+      <div id="response-div">
+        <h1>Example of mixing HTMX and Javascript</h1>
+      </div>
+      <button hx-on:click='htmx.removeClass(htmx.find("#hiddenContent"), "hidden");' class="margin">
+        Show Hidden Content using htmx JS helpers
+      </button>
+
+      <button onclick='document.querySelector("#hiddenContent").classList.remove("hidden");' class="margin">
+        Show Hidden Content using pure JS with hx-on
+      </button>
+
+       <button hx-on='click: removeHidden()' class="margin">
+        Show Hidden Content using JS function
+      </button>
+
+      
+
+      <div id="hiddenContent" class="hidden padding" >
+        This data is not hidden Anymore. 
+
+         <button hx-on:click='htmx.addClass(htmx.find("#hiddenContent"), "hidden");'>
+          Hide Again
+        </button>
+      </div>
+
+        <h3>After settle example</h3>
+       <div id="serverTime"  class="no-opacity">
+          
+       </div>
+
+       <button hx-post="/poller" hx-target="#serverTime" hx-swap="innerHTML" hx-on::after-request='htmx.addClass(htmx.find("#serverTime"), "animate");' class="margin">Get Server Time</button>
+     
+      <article>
+       <p></p>
+       
+       <p><a href="https://htmx.org/api/#removeClass">HTMX Documentation</a></p>
+        <p><a href="https://github.com/dgavey/fastify-htmx-demos/">Github code</a></p>
+      </article>
+    </main>
+  </body>
+</html>
+
