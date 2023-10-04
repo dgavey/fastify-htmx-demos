@@ -1,0 +1,63 @@
+<html lang="en">
+
+<head>
+  <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-size: 18px;
+    }
+
+    .container {
+      margin: 1rem auto;
+      padding: 1rem;
+      max-width:
+        36rem;
+    }
+    ::backdrop {
+    background-image: linear-gradient(
+      45deg,
+      magenta,
+      rebeccapurple,
+      dodgerblue,
+      green
+    );
+    opacity: 0.75;
+  }
+
+    .htmx-indicator{
+        opacity:0;
+        transition: opacity 500ms ease-in;
+    }
+    .htmx-request .htmx-indicator{
+        opacity:1
+    }
+    .htmx-request.htmx-indicator{
+        opacity:1
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <h1>Magic 8 Ball dialog example</h1>
+    <p>Think of a question, then press the button to open a dialog with the Magic 8 Ball answer, minimal extra JS required. </p>
+    <button class="pure-button pure-button-primary" hx-post="/8ball" hx-target="#response-div" hx-swap="innerHTML" hx-indicator="#spinner">
+      Ask the 8 Ball
+    </button>
+    <div id="spinner" class="htmx-indicator">
+      Waiting for answer
+    </div>
+    <div id="response-div">
+
+    </div>
+    
+  </main>
+</body>
+
+</html>
